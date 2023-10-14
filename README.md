@@ -2,7 +2,7 @@
 ## A blog application with capabilities
   -  User authentication
   -  Blogs (CRUD)
-  -  Notificaitons
+  -  Notifications
 
 ##  ToDo
   -  [ ]  Login Page
