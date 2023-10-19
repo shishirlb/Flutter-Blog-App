@@ -49,18 +49,6 @@ dev_dependencies:
   # rules and activating additional ones.
   flutter_lints: ^2.0.0
 
-flutter_native_splash:
-  color: "#f7f6f1"
-  color_dark: "#272727"
-  image: assets/images/spiderman.png
-  image_dark: assets/images/spiderman.png
-
-  android_12:
-    icon_background_color: "#f7f6f1"
-    icon_background_color_dark: "#272727"
-    image:  assets/images/spiderman.png
-    image_dark: assets/images/spiderman.png
-
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
 
