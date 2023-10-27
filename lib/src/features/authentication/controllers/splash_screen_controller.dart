@@ -1,5 +1,4 @@
 import 'package:flutter_blog_app/src/features/authentication/screens/on_boarding/on_boarding_screen.dart';
-import 'package:flutter_blog_app/src/features/authentication/screens/splash_screen/welcome_screen.dart';
 import 'package:get/get.dart';
 
 class SplashScreenController extends GetxController{

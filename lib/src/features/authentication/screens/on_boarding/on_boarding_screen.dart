@@ -6,9 +6,7 @@ import 'package:liquid_swipe/liquid_swipe.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class OnBoardingScreen extends StatelessWidget {
-  OnBoardingScreen({super.key});
-
-  
+  const OnBoardingScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -23,8 +21,6 @@ class OnBoardingScreen extends StatelessWidget {
             pages: onBoardingController.onBoardingPages,
             liquidController: onBoardingController.liquidController,
             onPageChangeCallback: onBoardingController.onPageChangedCallback,
-            slideIconWidget: const Icon(Icons.arrow_back_ios),
-            enableSideReveal: true,
           ),
           Positioned(
             bottom: 60,
