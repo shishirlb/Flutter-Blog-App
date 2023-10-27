@@ -1,4 +1,5 @@
-
+const String blogLogin = "Login";
+const String blogRegister = "Register";
 
 const String blogAppName = ".blog/";
 const String blogAppTagLine = "You only need this app, hehehe";
@@ -12,3 +13,6 @@ const String blogOnBoardingSubTitle3 = "And gonna, ride till I can't no more";
 const String blogOnboardingCounter1 = "1/3";
 const String blogOnboardingCounter2 = "2/3";
 const String blogOnboardingCounter3 = "3/3";
+
+const String blogWelcomeScreenTitle = "An amazing blog app";
+const String blogWelcomeScreenSubTitle = "This is the best blog app ever, no cap, only fax, writing random words to make it overflow";

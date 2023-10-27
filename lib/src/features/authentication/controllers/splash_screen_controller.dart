@@ -1,4 +1,5 @@
 import 'package:flutter_blog_app/src/features/authentication/screens/on_boarding/on_boarding_screen.dart';
+import 'package:flutter_blog_app/src/features/authentication/screens/welcome/welcome_screen.dart';
 import 'package:get/get.dart';
 
 class SplashScreenController extends GetxController{
@@ -11,7 +12,7 @@ class SplashScreenController extends GetxController{
 		await Future.delayed(const Duration(milliseconds: 500));
 		animate.value = true;
 		await Future.delayed(const Duration(milliseconds: 3000));
-		Get.to(OnBoardingScreen());
+		Get.to(WelcomeScreen());
   }  
 
 }
