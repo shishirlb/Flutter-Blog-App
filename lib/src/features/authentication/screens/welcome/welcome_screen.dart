@@ -1,14 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_blog_app/src/common/fade_in_animation/fade_in_controller.dart';
+import 'package:flutter_blog_app/src/common/fade_in_animation/fade_in_design.dart';
+import 'package:flutter_blog_app/src/common/fade_in_animation/fade_in_design_model.dart';
 import 'package:flutter_blog_app/src/constants/colors.dart';
 import 'package:flutter_blog_app/src/constants/image_strings.dart';
 import 'package:flutter_blog_app/src/constants/sizes.dart';
 import 'package:flutter_blog_app/src/constants/text_strings.dart';
+import 'package:get/get.dart';
 
 class WelcomeScreen extends StatelessWidget {
   const WelcomeScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
+
+    final fadeInAnimationcontroller = Get.put(FadeInAnimationController());
+    fadeInAnimationcontroller.startAnimation();
 
     var mediaQuery = MediaQuery.of(context);
     var screenHeight = mediaQuery.size.height;
@@ -17,41 +24,58 @@ class WelcomeScreen extends StatelessWidget {
 
     return Scaffold(
       backgroundColor: isDarkMode ? blogSecondaryColor : blogPrimaryColor,
-      body: Container(
-        padding: EdgeInsets.all(blogDefaultSize),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            Image(image: AssetImage(blogWelcomePageImg), height: screenHeight * 0.6),
-            Column(
-              children: [
-                Text(blogWelcomeScreenTitle, style: Theme.of(context).textTheme.headline5),
-                Text(blogWelcomeScreenSubTitle, style: Theme.of(context).textTheme.bodyText2, textAlign: TextAlign.center,),
-              ],
+      body: Stack(
+        children: [
+          BlogFadeInAnimation(
+            durationInMs: 1200,
+            animate: BlogAnimatePostition(
+              bottomAfter: 0, 
+              bottomBefore: -100,
+              leftBefore: 0,
+              leftAfter: 0,
+              rightBefore: 0,
+              rightAfter: 0,
+              topBefore: 0,
+              topAfter: 0
             ),
-            Row(
-              children: [
-                Expanded(
-                  child: OutlinedButton(
-                    onPressed: () {},
-                    child: Text(
-                      blogLogin.toUpperCase()
-                    )
+            child: Container(
+              padding: const EdgeInsets.all(blogDefaultSize),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  Image(image: const AssetImage(blogWelcomePageImg), height: screenHeight * 0.6),
+                  Column(
+                    children: [
+                      Text(blogWelcomeScreenTitle, style: Theme.of(context).textTheme.headline5),
+                      Text(blogWelcomeScreenSubTitle, style: Theme.of(context).textTheme.bodyText2, textAlign: TextAlign.center,),
+                    ],
+                  ),
+                  Row(
+                    children: [
+                      Expanded(
+                        child: OutlinedButton(
+                          onPressed: () {},
+                          child: Text(
+                            blogLogin.toUpperCase()
+                          )
+                        )
+                      ),
+                      const SizedBox(width: 20.0),
+                      Expanded(
+                        child: ElevatedButton(
+                          onPressed: () {}, 
+                          child: Text(
+                            blogRegister.toUpperCase()
+                            )
+                          )
+                        )
+                    ],
                   )
-                ),
-                const SizedBox(width: 20.0),
-                Expanded(
-                  child: ElevatedButton(
-                    onPressed: () {}, 
-                    child: Text(
-                      blogRegister.toUpperCase()
-                      )
-                    )
-                  )
-              ],
-            )
-          ],
-        ),
+                ],
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }

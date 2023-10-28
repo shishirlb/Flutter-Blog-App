@@ -1,76 +1,69 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_blog_app/src/common/fade_in_animation/fade_in_design_model.dart';
 import 'package:flutter_blog_app/src/constants/colors.dart';
 import 'package:flutter_blog_app/src/constants/image_strings.dart';
 import 'package:flutter_blog_app/src/constants/sizes.dart';
 import 'package:flutter_blog_app/src/constants/text_strings.dart';
-import 'package:flutter_blog_app/src/features/authentication/controllers/splash_screen_controller.dart';
+import 'package:flutter_blog_app/src/common/fade_in_animation/fade_in_controller.dart';
 import 'package:get/get.dart';
+import '../../../../common/fade_in_animation/fade_in_design.dart';
 
 class SplashScreen extends StatelessWidget {
   
   SplashScreen({super.key});
 
-  //controller initilization
-  final splashScreenController = Get.put(SplashScreenController());
-
   @override
   Widget build(BuildContext context) {
-    splashScreenController.animateSplashScreen();
+
+    final fadeInAnimationController = Get.put(FadeInAnimationController());
+    fadeInAnimationController.startSplashScreenAnimation();
+    var mediaQuery = MediaQuery.of(context);
+    var screenHeight = mediaQuery.size.height;
+    
     return Scaffold(
       body: Stack(
         children: [
-          Obx( () => AnimatedPositioned(
-              top: splashScreenController.animate.value ? 0 : -20,
-              left: splashScreenController.animate.value ? 0 : -20,
-              duration: const Duration(milliseconds: 1600),
-              child: const Image(
-                image: AssetImage(blogSplashTopIcon)
-              )
+          BlogFadeInAnimation(
+            durationInMs: 1600,
+            animate: BlogAnimatePostition(
+              topAfter: 0, topBefore: -30, leftBefore:-30, leftAfter: 0 
+            ),
+            child: const Image(image: AssetImage(blogSplashTopIcon)),
+          ),
+          BlogFadeInAnimation(
+            durationInMs: 2000,
+            animate: BlogAnimatePostition(
+              topBefore: 80, topAfter: 80, leftAfter: blogDefaultSize, leftBefore: -80
+            ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(blogAppName, style: Theme.of(context).textTheme.headline4), 
+                Text(blogAppTagLine, style: Theme.of(context).textTheme.headline6)
+              ],
             ),
           ),
-          Obx( () => AnimatedPositioned(
-              duration: const Duration(milliseconds: 1600),
-              top: 100, 
-              left: splashScreenController.animate.value ? blogDefaultSize : -80, 
-              child: AnimatedOpacity(
-                duration: const Duration(milliseconds: 1600),
-                opacity: splashScreenController.animate.value ? 1 : 0,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(blogAppName, style: Theme.of(context).textTheme.headline4), 
-                    Text(blogAppTagLine, style: Theme.of(context).textTheme.headline6)
-                  ],
+          BlogFadeInAnimation(
+            durationInMs: 2400,
+            animate: BlogAnimatePostition(bottomBefore: 0, bottomAfter: 100),
+            child: Image(image: const AssetImage(blogSplashImage), height: screenHeight * 0.5)
+          ),
+          BlogFadeInAnimation(
+            durationInMs: 2400,
+            animate: BlogAnimatePostition(bottomBefore: 0, bottomAfter: 60, rightBefore: blogDefaultSize, rightAfter: blogDefaultSize),
+            child: Container(
+                width: blogSplashContainerSize,
+                height: blogSplashContainerSize,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(100),
+                  color: blogPrimaryColor
                 ),
               )
             ),
-          ),
-          Obx( () => AnimatedPositioned(
-              duration: const Duration(milliseconds: 2400),
-              bottom: splashScreenController.animate.value ? 100 : 0,
-              right: 10,
-              left: 10,
-              child: AnimatedOpacity(
-                duration: const Duration(milliseconds: 1600),
-                opacity: splashScreenController.animate.value ? 1 : 0,
-                child: const Image(image: AssetImage(blogSplashImage))
-              )
-            ),
-          ),
-          Positioned(
-            bottom: 40,
-            right: blogDefaultSize,
-            child: Container(
-              width: blogSplashContainerSize,
-              height: blogSplashContainerSize,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(100),
-                color: blogPrimaryColor
-              ),
-            )
-          )
         ],
       ),
     );
   }
 }
+
+
