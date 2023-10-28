@@ -8,3 +8,5 @@ const String blogOnBoardingPage2Img = "assets/images/on_boarding_img/onboarding-
 const String blogOnBoardingPage3Img = "assets/images/on_boarding_img/onboarding-img3.png";
 
 const String blogWelcomePageImg = "assets/images/welcome_img/welcome-img.png";
+
+const String googleLogo = "assets/logo/google-logo.png";

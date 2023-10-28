@@ -16,3 +16,13 @@ const String blogOnboardingCounter3 = "3/3";
 
 const String blogWelcomeScreenTitle = "An amazing blog app";
 const String blogWelcomeScreenSubTitle = "This is the best blog app ever, no cap, only fax, writing random words to make it overflow";
+
+const String blogLoginScreenTitle = "Ayo wassup,";
+const String blogLoginScreenSubTitle = "I am Iron man, but Thanos was right, I am batman";
+const String blogRememberMe = "Remember Me?";
+const String blogAlreadyHaveAnAccount = "Already have an account?";
+const String blogEmail = "E-Mail";
+const String blogPassword = "Password";
+const String blogForgotPassword = "Forgot Password?";
+const String blogSignInWithGoogle = "Sign-in with Google";
+const String blogDontHaveAnAccount = "Don't have an account?";
