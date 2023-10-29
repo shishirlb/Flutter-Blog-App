@@ -3,8 +3,8 @@ import 'package:flutter_blog_app/src/constants/image_strings.dart';
 import 'package:flutter_blog_app/src/constants/sizes.dart';
 import 'package:flutter_blog_app/src/constants/text_strings.dart';
 
-class LoginFooterWidget extends StatelessWidget {
-  const LoginFooterWidget({
+class SignUpFooterWidget extends StatelessWidget {
+  const SignUpFooterWidget({
     super.key,
   });
 
@@ -19,17 +19,17 @@ class LoginFooterWidget extends StatelessWidget {
           child: OutlinedButton.icon(
             icon: const Image(image: AssetImage(googleLogo), width: 30),
             onPressed: () {}, 
-            label: const Text(blogSignInWithGoogle)
+            label: Text(blogSignInWithGoogle.toUpperCase())
           ),
         ),
         const SizedBox(height: blogFormHeight),
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const Text(blogDontHaveAnAccount),
+            const Text(blogAlreadyHaveAnAccount),
             TextButton(
               onPressed: () {}, 
-              child: const Text(blogRegister)
+              child: Text(blogLogin.toUpperCase())
             ),
           ],
         )

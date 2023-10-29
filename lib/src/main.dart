@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
       //set theme of the app
       theme: BlogAppTheme.lightTheme,
       darkTheme: BlogAppTheme.darkTheme,
-      home: SplashScreen(),
+      home: const SplashScreen(),
     );
   }
 }

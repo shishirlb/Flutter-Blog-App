@@ -10,7 +10,7 @@ import '../../../../common/fade_in_animation/fade_in_design.dart';
 
 class SplashScreen extends StatelessWidget {
   
-  SplashScreen({super.key});
+  const SplashScreen({super.key});
 
   @override
   Widget build(BuildContext context) {

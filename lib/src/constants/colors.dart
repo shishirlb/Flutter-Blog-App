@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 
-const blogPrimaryColor = Color.fromARGB(255, 119, 0, 255);
+const blogPrimaryColor = Color.fromARGB(255, 231, 211, 25);
 const blogSecondaryColor = Color.fromARGB(255, 2, 0, 0);
 const blogAccentColor = Color(0xFF001BFF);
 
