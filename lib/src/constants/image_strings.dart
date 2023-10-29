@@ -10,3 +10,5 @@ const String blogOnBoardingPage3Img = "assets/images/on_boarding_img/onboarding-
 const String blogWelcomePageImg = "assets/images/welcome_img/welcome-img.png";
 
 const String googleLogo = "assets/logo/google-logo.png";
+
+const String blogForgotPasswordImg = "assets/images/forgot_password/forgot-password-img.png";

@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_blog_app/src/constants/image_strings.dart';
 import 'package:flutter_blog_app/src/constants/sizes.dart';
 import 'package:flutter_blog_app/src/constants/text_strings.dart';
+import 'package:flutter_blog_app/src/features/authentication/screens/login/login_screen.dart';
+import 'package:get/get.dart';
 
 class SignUpFooterWidget extends StatelessWidget {
   const SignUpFooterWidget({
@@ -28,7 +30,9 @@ class SignUpFooterWidget extends StatelessWidget {
           children: [
             const Text(blogAlreadyHaveAnAccount),
             TextButton(
-              onPressed: () {}, 
+              onPressed: () {
+                Get.offAll(() => const LoginScreen());
+              }, 
               child: Text(blogLogin.toUpperCase())
             ),
           ],
